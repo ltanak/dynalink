@@ -1,0 +1,11 @@
+[workspace]
+authors = ["ltanak <ltanakbusiness@outlook.com>"]
+channels = ["conda-forge"]
+name = "dynalink"
+platforms = ["osx-arm64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+run = "PYTHONPATH=src python -m dynalink"
+[dependencies]
+python = ">=3.11"
