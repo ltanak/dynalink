@@ -1,12 +1,8 @@
-from dynalink.core import registry
+from dynalink import plugin
+print("Step 5: base plugin")
 
-print("Base plugin ran!")
-
+@plugin(name="Base")
 class BasePlugin:
-    name = "Base Plugin"
 
     def run(self):
         print("Hello from base plugin")
-
-
-registry.register("base", BasePlugin())

@@ -1,3 +1,3 @@
 from dynalink.registry import PluginRegistry
-print("Core imported!")
+print("Step 1: core imported")
 registry = PluginRegistry()

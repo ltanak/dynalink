@@ -1,10 +1,6 @@
-from dynalink.core import registry
+from dynalink import plugin
+print("Step 7: function pluging")
 
-print("Function plugin ran!")
-
+@plugin(name="Function")
 def function_plugin():
     print("We're testing the assumptions of the plugin registry!")
-
-
-
-registry.register("function", function_plugin)
