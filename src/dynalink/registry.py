@@ -30,10 +30,10 @@ class PluginRegistry:
         if kind == "callable":
             if not (callable(obj) and not inspect.isclass(obj)):
                 raise TypeError(f"Input kind was {kind}, object '{name}' was not a callable.")
-        elif kind == "runnable":
-            # checks that it is a class, it has an attribute called run, and that attribute is runnable
-            if not (inspect.isclass(obj) and hasattr(obj, 'run') and callable(getattr(obj, 'run'))):
-                raise TypeError(f"Input kind was {kind}, object '{name}' is not a class, with a 'run()' funciton.")
+        # elif kind == "runnable":
+        #     # checks that it is a class, it has an attribute called run, and that attribute is runnable
+        #     if not (inspect.isclass(obj) and hasattr(obj, 'run') and callable(getattr(obj, 'run'))):
+        #         raise TypeError(f"Input kind was {kind}, object '{name}' is not a class, with a 'run()' funciton.")
 
     def get(self, name: str, kind: str) -> Any:
         return self._plugins[(name, kind)]
