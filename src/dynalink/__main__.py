@@ -8,14 +8,14 @@ from dynalink.core import registry
 
 def main():
     print("MAIN file!")
-    plugin_cls = registry.get("Base")
+    plugin_cls = registry.get("Base", "runnable")
 
     plugin = plugin_cls()
     print(type(plugin_cls))
     print(type(plugin))
     plugin.run()
 
-    function = registry.get("Function")
+    function = registry.get("Function", "callable")
     print(type(function))
     function()
 
