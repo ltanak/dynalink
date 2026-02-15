@@ -6,7 +6,6 @@ print("Step 0: import the PluginRegistry class")
 class PluginRegistry:
     """
     storage for all registered plugins
-
     plugins optinto the registry
     """
 
