@@ -1,6 +1,8 @@
 from typing import Dict, Any
 from collections import defaultdict
 import inspect
+
+from .contracts import RunnablePlugin
 print("Step 0: import the PluginRegistry class")
 
 class PluginRegistry:
@@ -29,10 +31,10 @@ class PluginRegistry:
         if kind == "callable":
             if not (callable(obj) and not inspect.isclass(obj)):
                 raise TypeError(f"Input kind was {kind}, object '{name}' was not a callable.")
-        # elif kind == "runnable":
-        #     # checks that it is a class, it has an attribute called run, and that attribute is runnable
-        #     if not (inspect.isclass(obj) and hasattr(obj, 'run') and callable(getattr(obj, 'run'))):
-        #         raise TypeError(f"Input kind was {kind}, object '{name}' is not a class, with a 'run()' funciton.")
+        # all class validation handled via metaclass
+        if kind == "runnable":
+            if not inspect.isclass(obj) or not issubclass(obj, RunnablePlugin):
+                raise TypeError("Class does not inherit from the RunnablePlugin class")
 
     def get(self, name: str, kind: str) -> Any:
         return self._plugins[(name, kind)]
